@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>ADP Bank – Close Account</title>
+<style>
+body{margin:0;font-family:system-ui;background:#f3f4f6;}
+.navbar{background:#111827;color:#fff;padding:12px 32px;display:flex;justify-content:space-between;}
+.brand{font-size:1.4rem;font-weight:700;text-transform:uppercase;}
+.brand span{color:#38bdf8;}
+.nav-links a{color:#eee;margin-left:16px;text-decoration:none;}
+.nav-links a:hover{color:#38bdf8;}
+.container{max-width:650px;margin:40px auto;padding:0 16px;}
+.card{background:#fff;padding:32px;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.15);}
+label{display:block;margin-top:12px;}
+input{width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;margin-bottom:12px;}
+button{background:#dc2626;color:#fff;border:none;padding:10px 16px;border-radius:999px;}
+button:hover{background:#b91c1c;}
+.success{background:#dcfce7;padding:10px;border-radius:8px;margin-top:16px;}
+.error{background:#fee2e2;padding:10px;border-radius:8px;margin-top:16px;}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="brand"><span>ADP</span> Bank</div>
+    <div class="nav-links">
+        <a href="/">Dashboard</a>
+        <a href="/accounts/new">Open Account</a>
+        <a href="/accounts/find">View Account</a>
+        <a href="/accounts/deposit">Deposit</a>
+        <a href="/accounts/withdraw">Withdraw</a>
+        <a href="/accounts/update">Update</a>
+        <a href="/accounts/delete">Close Account</a>
+    </div>
+</div>
+
+<div class="container">
+<div class="card">
+
+<h1>Close Account</h1>
+<form method="post" action="/accounts/delete">
+<label>Account Number</label>
+<input type="text" name="accountNumber" required>
+<button type="submit">Close Account</button>
+</form>
+
+<div th:if="${success}" class="success" th:text="${success}"></div>
+<div th:if="${error}" class="error" th:text="${error}"></div>
+
+</div>
+</div>
+
+</body>
+</html>

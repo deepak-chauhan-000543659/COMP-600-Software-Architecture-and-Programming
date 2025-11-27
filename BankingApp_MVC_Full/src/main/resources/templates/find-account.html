@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ADP Bank – Find Account</title>
+    <style>
+        body { margin: 0; font-family: system-ui, sans-serif; background: #f3f4f6; }
+        .navbar { background: #111827; color: #f9fafb; padding: 12px 32px; display: flex; justify-content: space-between; }
+        .navbar .brand { font-size: 1.4rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+        .navbar .brand span { color: #38bdf8; }
+        .nav-links a { color: #e5e7eb; margin-left: 16px; text-decoration: none; }
+        .nav-links a:hover { color: #38bdf8; }
+        .container { max-width: 700px; margin: 40px auto; padding: 0 16px; }
+        .card { background: #fff; border-radius: 12px; padding: 28px 32px; box-shadow: 0 18px 45px rgba(15,15,15,.15); }
+        h1 { margin-top: 0; font-size: 1.6rem; color: #111827; }
+        label { display: block; margin: 8px 0 4px; }
+        input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #d1d5db; margin-bottom: 16px; }
+        button { background: #2563eb; border: none; padding: 10px 18px; color: #fff; border-radius: 999px; cursor: pointer; }
+        button:hover { background: #1e40af; }
+        .result-card { margin-top: 20px; padding: 18px; background: #f9fafb; border-left: 4px solid #2563eb; border-radius: 8px; }
+        .status { margin-top: 16px; padding: 10px; border-radius: 8px; }
+        .error { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="brand"><span>ADP</span> Bank</div>
+    <div class="nav-links">
+        <a href="/">Dashboard</a>
+        <a href="/accounts/new">Open Account</a>
+        <a href="/accounts/find">View Account</a>
+        <a href="/accounts/deposit">Deposit</a>
+        <a href="/accounts/withdraw">Withdraw</a>
+        <a href="/accounts/update">Update</a>
+        <a href="/accounts/delete">Close Account</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h1>Find Account</h1>
+
+        <form method="post" action="/accounts/find">
+            <label>Account Number</label>
+            <input type="text" name="accountNumber" placeholder="e.g. A2001" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <div th:if="${account}" class="result-card">
+            <h3>Account Details</h3>
+            <p><strong>Account Number:</strong> <span th:text="${account.accountNumber}"></span></p>
+            <p><strong>Customer Name:</strong> <span th:text="${account.customerName}"></span></p>
+            <p><strong>Balance:</strong> $<span th:text="${account.balance}"></span></p>
+        </div>
+
+        <div th:if="${error}" class="status error" th:text="${error}"></div>
+    </div>
+</div>
+
+</body>
+</html>
