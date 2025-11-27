@@ -10,8 +10,8 @@ This project implements a menu‑driven console banking app following **MVC** an
 2) Edit `src/main/resources/db.properties` with your MySQL credentials.
 3) Build & run:
    ```bash
-   mvn clean compile
-   mvn exec:java
+  mvn spring-boot:run
+http://localhost:8080/
    ```
 
 ## Features
@@ -23,9 +23,9 @@ This project implements a menu‑driven console banking app following **MVC** an
 - Clear console view + input validation
 
 ## Rubric mapping (quick checklist)
-- Architecture & Design (40): Layers, MVC, DAO/DTO/Connection ✅
-- Functionality (45): CRUD + deposit/withdraw + UI validation + messages ✅
-- Java Implementation (20): Code style, OOP, SQL & transactions, close resources ✅
-- Project & Docs (20): Packages, naming, comments, README ✅
+- Architecture & Design (40): Layers, MVC, DAO/DTO/Connection 
+- Functionality (45): CRUD + deposit/withdraw + UI validation + messages 
+- Java Implementation (20): Code style, OOP, SQL & transactions, close resources 
+- Project & Docs (20): Packages, naming, comments, README 
 
 See `src` for code comments explaining complex sections.
